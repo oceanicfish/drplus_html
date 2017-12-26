@@ -1,0 +1,9 @@
+version: "3.2"
+
+services:
+  dphtml:
+    image: nginx
+    volumes:
+      - ./html:/usr/share/nginx/html
+    ports:
+      - 80:80

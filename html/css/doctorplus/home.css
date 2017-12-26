@@ -1,0 +1,104 @@
+#page-wrapper {
+    background-color: #fff;
+}
+
+#logo-text {
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+    font-size: 20pt;
+    text-transform: none;
+}
+
+div.navbar-header {
+    background: #fff;
+    box-shadow: 5px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-top-links > li > a {
+    color: #000000;
+    cursor: hand;
+}
+
+div.top-left-part {
+    width: 50px;
+    border-right: 0px;
+}
+
+.input-group .form-control {
+    width: 50%;
+}
+
+.app-search .form-control {
+    width: 300px;
+    border-radius: 2px;
+    border: 1px solid rgba(120, 130, 140, 1);
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+div.top-left-part {
+    width: 100px;
+}
+
+.navbar-top-links .dropdown-menu li {
+    color: #ff7676;
+}
+
+div.login-btn-area {
+    margin-right: 15px;
+    margin-top: 13px;
+}
+
+a.btn.btn-info.btn-outline.btn-index.active {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    line-height: 1.35;
+}
+
+span.category-list {
+    padding: 5px 10px;
+    border-radius: 2px;
+    border: 0px;
+}
+
+span.category-list:hover {
+    padding: 5px 10px;
+    border-radius: 2px;
+    border: 1px solid #00AEEF;
+}
+
+div.modal-header {
+    border-bottom: none;
+}
+
+div.modal-footer {
+    border-top: none;
+}
+
+.el-element-overlay .el-card-item .el-overlay-1 .el-info > li {
+    display: block;
+    margin: 25px 15px;
+}
+
+button.btn.btn-block.btn-outline.btn-default.time-block {
+    font-family: 'Rubik', sans-serif;
+    color: #313131;
+    font-weight: 300;
+}
+
+.news-slide .news-content {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/*Small Desktop*/
+@media (min-width: 1024px) {
+    .app-search .form-control:focus {
+        width: 300px;
+        border-radius: 0px;
+        border: 1px solid;
+        border-color: #ff7676;
+        font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 200;
+    }
+}

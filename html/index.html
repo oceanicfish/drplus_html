@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="indexApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
+    <title>DoctorPlus.ph</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--select form-->
+    <link href="plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/bower_components/custom-select/custom-select.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/bower_components/switchery/dist/switchery.min.css" rel="stylesheet" />
+    <link href="plugins/bower_components/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    <link href="plugins/bower_components/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
+    <!-- Daterange picker plugins css -->
+    <link href="plugins/bower_components/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="plugins/bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!--alerts CSS -->
+    <link href="plugins/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+    <!--Owl carousel CSS -->
+    <link href="plugins/bower_components/owl.carousel/owl.carousel.min.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/bower_components/owl.carousel/owl.theme.default.css" rel="stylesheet" type="text/css" />
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="css/colors/megna-dark.css" id="theme" rel="stylesheet">
+    <!-- custom CSS -->
+    <link href="css/doctorplus/home.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header" ng-controller="indexController">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <!--<div class="preloader">-->
+        <!--<svg class="circular" viewBox="25 25 50 50">-->
+            <!--<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>-->
+    <!--</div>-->
+    <!-- ============================================================== -->
+    <!-- Wrapper -->
+    <!-- ============================================================== -->
+    <div id="wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <div class="top-left-part text-center">
+                    <!-- Logo -->
+                    <a class="logo" id="logo-text" href="index.html"><span class="text-info">Dr</span><span class="text-danger">+</span></a>
+                </div>
+                <!-- /Logo -->
+                <!-- Search input and Toggle icon -->
+                <ul class="nav navbar-top-links navbar-left">
+                    <li class="hidden-md hidden-sm hidden-xs">
+                        <form role="search" class="app-search m-r-10">
+                            <input type="text" placeholder="Condition, Procedure, Doctor name..." class="form-control">
+                            <input type="text" placeholder="Location" class="form-control" style="width: 180px;">
+                            <input class="form-control input-daterange-datepicker" type="text" name="daterange" value="11/16/2017 - 11/30/2017" style="width: 220px" />
+                            <button class="btn btn-danger" style="border: 0px; border-radius: 2px; margin-bottom: 2px; line-height: 1.35;">Find me a Doctor </button>
+                            <!--<input type="text" placeholder="Search..." class="form-control"> <a href=""><i class="fa fa-search"></i></a>-->
+                        </form>
+                    </li>
+                </ul>
+                <ul class="nav navbar-top-links navbar-right pull-right">
+
+                    <!-- /.Search Menu for Small Sreen -->
+                    <li class="mega-dropdown visible-md visible-sm visible-xs">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><i class="ti-search"></i></a>
+                        <ul class="dropdown-menu mega-dropdown-menu bg-theme-alt">
+                            <li class="col-sm-4">
+                                <ul>
+                                    <li><input type="text" placeholder="Search..." class="form-control"></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-4">
+                                <ul>
+                                    <li><input type="text" placeholder="Search..." class="form-control"></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-4">
+                                <ul>
+                                    <li><input type="text" placeholder="Search..." class="form-control"></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- /.Search Menu for Small Sreen -->
+
+                    <!-- .Megamenu -->
+                    <li class="mega-dropdown">
+                        <a class="dropdown-toggle visible-md visible-sm visible-xs" data-toggle="dropdown" href="javascript:void(0)"><i class="ti-layout-grid3-alt"></i></a>
+                        <a class="dropdown-toggle hidden-md hidden-sm hidden-xs" data-toggle="dropdown" href="javascript:void(0)">Categories</a>
+                        <ul class="dropdown-menu mega-dropdown-menu">
+                            <li class="col-sm-4">
+                                <ul>
+                                    <li class="dropdown-header">LOCATIONS</li>
+                                    <li><hr style="padding-right: 50px;"></li>
+                                    <li><a href="/search/metromanila"><span class="category-list">Metro Manila</span></a></li>
+                                    <li><a href="/search/centralvisaya"><span class="category-list">Central Visaya</span></a></li>
+                                    <li><a href="/search/replace"><span class="category-list">Davao</span></a></li>
+                                    <li><a href="/search/centralluzon"><span class="category-list">Central Luzon</span></a></li>
+                                    <li><a href="/search/car"><span class="category-list">C.A.R</span></a></li>
+                                    <li><a href="/search/bicalregion"><span class="category-list">Bicol Region</span></a></li>
+                                    <li><a href="/search/armm"><span class="category-list">Armm</span></a></li>
+                                    <li><a href="/search/westernvisaya"><span class="category-list">Western Visayas</span></a></li>
+                                    <li><a href="/search/calabarzonmimaropa"><span class="category-list">Calabarzon & Mimaropa</span></a></li>
+                                    <li><a href="/search/zamboanga"><span class="category-list">Zamboanga</span></a></li>
+                                    <li><a href="/search/easternvisayas"><span class="category-list">Eastern Visayas</span></a></li>
+                                    <li><a href="/search/caraga"><span class="category-list">Caraga</span></a></li>
+                                    <li><a href="/search/cagayanvalley"><span class="category-list">Cagayan Valley</span></a></li>
+                                    <li><a href="/search/ilocosregion"><span class="category-list">Ilocos Region</span></a></li>
+                                    <li><a href="/search/northernmindanao"><span class="category-list">Northern Mindanao</span></a></li>
+                                    <li><a href="/search/oversea"><span class="category-list">Oversea</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-4">
+                                <ul>
+                                    <li class="dropdown-header">SPECIALTY</li>
+                                    <li><hr style="padding-right: 50px;"></li>
+                                    <li><a href="/search/cardiologist"><span class="category-list">Cardiologist</span></a></li>
+                                    <li><a href="/search/allergist"><span class="category-list">Allergist</span></a></li>
+                                    <li><a href="/search/chiropractor"><span class="category-list">Chiropractor</span></a></li>
+                                    <li><a href="/search/dentist"><span class="category-list">Dentist</span></a></li>
+                                    <li><a href="/search/dermatologist"><span class="category-list">Dermatologist</span></a></li>
+                                    <li><a href="/search/earnosethroat"><span class="category-list">Ear, Nose & Throat</span></a></li>
+                                    <li><a href="/search/gastroenterologist"><span class="category-list">Gastroenterologist</span></a></li>
+                                    <li><a href="/search/ophthalmologist"><span class="category-list">Ophthalmologist</span></a></li>
+                                    <li><a href="/search/surgeon"><span class="category-list">Surgeon</span></a></li>
+                                    <li><a href="/search/optometrist"><span class="category-list">Optometrist</span></a></li>
+                                    <li><a href="/search/pediatrician"><span class="category-list">Pediatrician</span></a></li>
+                                    <li><a href="/search/psychiatrist"><span class="category-list">Psychiatrist</span></a></li>
+                                    <li><a href="/search/urologist"><span class="category-list">Urologist</span></a></li>
+                                    <li><a href="/search/otherspecialty"><span class="category-list">Others</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-4">
+                                <ul>
+                                    <li class="dropdown-header">INSURANCE</li>
+                                    <li><hr style="padding-right: 50px;"></li>
+                                    <li><a href="/search/philhealth"><span class="category-list">Phil Health</span></a></li>
+                                    <li><a href="/search/philamlife"><span class="category-list">Philam Life</span></a></li>
+                                    <li><a href="/search/maxicare"><span class="category-list">Maxicare</span></a></li>
+                                    <li><a href="/search/insular"><span class="category-list">Insular Health Care</span></a></li>
+                                    <li><a href="/search/sunlife"><span class="category-list">Sun Life Financial</span></a></li>
+                                    <li><a href="/search/kaiser"><span class="category-list">Kaiser International</span></a></li>
+                                    <li><a href="/search/medicard"><span class="category-list">MediCard Philippines</span></a></li>
+                                    <li><a href="/search/pacific"><span class="category-list">Pacific Cross Philippines</span></a></li>
+                                    <li><a href="/search/otherinsurance"><span class="category-list">Others</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- /.Megamenu -->
+
+                    <li class="dropdown hidden-md hidden-sm hidden-xs" ng-hide="user.username">
+                        <a class="dropdown-toggle" data-toggle="dropdown" id="signup-button" href="#"> Sign Up</a>
+                        <!-- /.dropdown-user -->
+                    </li>
+
+                    <li class="dropdown" ng-hide="user.username">
+                        <a class="dropdown-toggle hidden-md hidden-sm hidden-xs" data-toggle="modal" data-target="#login-modal" href="#"> Log in</a>
+                        <a class="dropdown-toggle visible-md visible-sm visible-xs" data-toggle="modal" data-target="#login-modal"><i class="ti-user"></i></a>
+                        <!-- /.dropdown-user -->
+                    </li>
+
+
+                    <li class="dropdown" ng-show="user.username">
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="javascript:void(0)"> <img ng-src="{{user.imageURL}}" alt="user-img" width="36" class="img-circle"></a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <div class="dw-user-box">
+                                    <div class="u-img"><img ng-src="{{user.imageURL}}" alt="user" /></div>
+                                    <div class="u-text">
+                                        <h4>{{user.firstname}} {{user.lastname}}</h4>
+                                        <p class="text-muted">{{user.username}}</p><a href="/user/profile" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                </div>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="javascript:void(0)"><i class="ti-calendar"></i> Reservation</a></li>
+                            <li><a href="javascript:void(0)"><i class="ti-pulse"></i> Case History</a></li>
+                            <li><a href="javascript:void(0)"><i class="ti-receipt"></i> Prescription</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="javascript:void(0)"><i class="ti-settings"></i> Account Setting</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#" ng-click="logout()"><i class="fa fa-power-off"></i> Logout</a></li>
+                        </ul>
+                        <!-- /.dropdown-user -->
+                    </li>
+
+                    <!--<li>-->
+                        <!--<div class="login-btn-area">-->
+                            <!--<a class="btn btn-info btn-outline btn-index">Log in</a>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                    <!-- /.dropdown -->
+                </ul>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- End Top Navigation -->
+
+        <!-- ============================================================== -->
+        <!-- Page Content -->
+        <!-- ============================================================== -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+              <h2>
+                Primary Health Care
+              </h2>
+              <hr />
+                <!-- /.usercard-->
+                <div class="row el-element-overlay m-b-40">
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/2.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/2.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a href="#" data-toggle="modal" data-target="#quickview-modal">quick view</a> </li>
+                                            <li><a href="#">Schedule</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <p><i class="mdi mdi-star text-danger"></i> <i class="mdi mdi-star text-danger"></i> <i class="mdi mdi-star text-danger"></i> <i class="mdi mdi-star-half text-danger"></i> <i class="mdi mdi-star-outline"></i> <span class="review-amount">1300</span> </p>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/3.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/3.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/4.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/4.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.usercard -->
+                <!-- /.usercard-->
+                <h2>
+                  Cardiologist
+                </h2>
+                <hr />
+                <div class="row el-element-overlay m-b-40">
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/2.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/2.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/3.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/3.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/4.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/4.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.usercard -->
+                <!-- /.usercard-->
+                <hr />
+                <div class="row el-element-overlay m-b-40">
+                  <div class="news-slide m-b-15">
+                          <div class="vcarousel slide">
+                              <!-- Carousel items -->
+                              <div class="carousel-inner">
+                                  <div class="active item">
+                                      <div class="overlaybg"><img src="plugins/images/heading-bg/slide1.jpg" /></div>
+                                      <div class="news-content"><span class="label label-danger label-rounded">Primary</span>
+                                          <h2>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</h2> <a href="javascript:void(0)">Read More</a></div>
+                                  </div>
+                                  <div class="item">
+                                      <div class="overlaybg"><img src="plugins/images/heading-bg/slide2.jpg" /></div>
+                                      <div class="news-content"><span class="label label-primary label-rounded">Primary</span>
+                                          <h2>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</h2> <a href="javascript:void(0)">Read More</a></div>
+                                  </div>
+                                  <div class="item">
+                                      <div class="overlaybg"><img src="plugins/images/heading-bg/slide3.jpg" /></div>
+                                      <div class="news-content"><span class="label label-success label-rounded">Primary</span>
+                                          <h2>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</h2> <a href="javascript:void(0)">Read More</a></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                </div>
+                <!-- /.usercard -->
+                <!-- /.usercard-->
+                <h2>
+                  Allergist
+                </h2>
+                <hr />
+                <div class="row el-element-overlay m-b-40">
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/2.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/2.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/3.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/3.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/4.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/4.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.usercard -->
+                <!-- /.usercard-->
+                <h2>
+                  Dentist
+                </h2>
+                <hr />
+                <div class="row el-element-overlay m-b-40">
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/2.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/2.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/3.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/3.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/4.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/4.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.usercard -->
+            </div>
+
+            <div id="login-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <ul class="nav customtab nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#login-tab" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="true"><span class="visible-xs"><i class="icon-user"></i></span><span class="hidden-xs"> Log in</span></a></li>
+                                <li role="presentation" class=""><a href="#signup-tab" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="icon-user-follow"></i></span> <span class="hidden-xs">Sign up</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="modal-body">
+                            <div class="tab-content" style="margin-top: 0px;">
+                                <div role="tabpanel" class="tab-pane fade active in" id="login-tab">
+                                    <div class="button-list text-center">
+                                        <button class="btn btn-facebook waves-effect waves-light" type="button" style="width: 100%;"> <i class="fa fa-facebook"></i> Log in with Facebook </button>
+                                        <p class="m-b-20"></p>
+                                    </div>
+                                    <div class="button-list text-center">
+                                        <button class="btn btn-googleplus waves-effect waves-light" type="button" style="width: 100%;"> <i class="fa fa-google-plus"></i> Log in with Google </button>
+                                        <p class="m-b-20"></p>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="loginInputEmail">Email address</label>
+                                                <input type="email" name="username" ng-model="username" class="form-control" id="loginInputEmail" placeholder="Enter email"> </div>
+                                            <div class="form-group">
+                                                <label for="loginInputPassword">Password</label>
+                                                <input type="password" name="password" ng-model="password" class="form-control" id="loginInputPassword" placeholder="Password"> </div>
+                                            <div class="form-group">
+                                                <div class="checkbox checkbox-danger">
+                                                    <input id="loginCheckbox" type="checkbox" name="remember-me" ng-model="rememberMe">
+                                                    <label for="loginCheckbox"> Remember me </label>
+                                                </div>
+                                            </div>
+                                            <button type="button" ng-click="login()" class="btn btn-primary waves-effect waves-light m-r-10" style="width: 100%;">LOG IN</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="signup-tab">
+                                    <div class="button-list text-center">
+                                        <button class="btn btn-facebook waves-effect waves-light" type="button" style="width: 100%;"> <i class="fa fa-facebook"></i> Sign up with Facebook </button>
+                                        <!--<button class="btn btn-googleplus waves-effect waves-light" type="button"> <i class="fa fa-google-plus"></i> Log in with Google </button>-->
+                                        <p class="m-b-20"></p>
+                                    </div>
+                                    <div class="button-list text-center">
+                                        <!--<button class="btn btn-facebook waves-effect waves-light" type="button" style="width: 100%;"> <i class="fa fa-facebook"></i> Log in with Facebook </button>-->
+                                        <button class="btn btn-googleplus waves-effect waves-light" type="button" style="width: 100%;"> <i class="fa fa-google-plus"></i> Sign up with Google </button>
+                                        <p class="m-b-20"></p>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="signupInputEmail">Email address</label>
+                                                <input type="email" class="form-control" id="signupInputEmail" ng-model="signupInputEmail" placeholder="Enter email"> </div>
+                                            <div class="form-group">
+                                                <label for="signupMobileNumber">Mobile Phone</label>
+                                                <input type="text" class="form-control" id="signupMobileNumber" ng-model="signupMobileNumber" placeholder="Enter Mobile Phone"> </div>
+                                            <div class="form-group">
+                                                <label for="signupFirstName">Your Name</label>
+                                                <div class="form-inline">
+                                                    <input type="text" class="form-control" id="signupFirstName" ng-model="signupFirstName" placeholder="First Name" style="width: 48%;">
+                                                    <input type="text" class="form-control" id="signupLastName" ng-model="signupLastName" placeholder="Last Name" style="width: 48%;">
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Birthday</label>
+                                                <input type="text" placeholder="" data-mask="99/99/9999" class="form-control" id="signupBirthday" ng-model="signupBirthday"> <span class="font-13 text-muted">dd/mm/yyyy</span> </div>
+                                            <div class="form-group" id="signupPassword">
+                                                <label for="signupInputPassword">Password <span class="text-danger">{{password_error}}</span></label>
+                                                <input type="password" class="form-control" id="signupInputPassword" placeholder="Password" ng-model="signupInputPassword"> </div>
+                                            <div class="form-group" id="signupPasswordConfirm">
+                                                <label for="signupInputPasswordConfirm">Confirm Password <span class="text-danger">{{password_error}}</span></label>
+                                                <input type="password" class="form-control" id="signupInputPasswordConfirm" placeholder="Confirm Password" ng-model="signupInputPasswordConfirm"> </div>
+                                            <div class="form-group">
+                                                <div class="checkbox checkbox-danger">
+                                                    <input id="receiveEmailCheckbox" type="checkbox" ng-model="receiveEmailCheckbox">
+                                                    <label for="receiveEmailCheckbox"> I want to receive DoctorPlus.ph health magazine (bi-weekly) by email </label>
+                                                </div>
+                                            </div>
+                                            <button type="button" ng-click="signup()" class="btn btn-primary waves-effect waves-light m-r-10" style="width: 100%;">SUBMIT</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--reserve panel tab-->
+
+            <div id="quickview-modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <ul class="nav customtab nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#profile-tab" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="icon-bubbles"></i></span> <span class="hidden-xs">Profile</span></a></li>
+                                <li role="presentation" class=""><a href="#schedule-tab" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="true"><span class="visible-xs"><i class="icon-clock"></i></span><span class="hidden-xs"> Schedule</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="modal-body">
+                            <div class="tab-content" style="margin-top: 0px;">
+                                <!--profile tab-->
+                                <div role="tabpanel" class="tab-pane fade active in" id="profile-tab">
+                                    <div class="row p-b-20">
+                                        <div id="map" class="gmaps"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="white-box p-10">
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 text-center p-b-20">
+                                                    <a href="contact-detail.html"><img src="plugins/images/users/varun.jpg" alt="user" class="img-responsive"></a>
+                                                </div>
+                                                <div class="col-md-12 col-sm-12">
+                                                    <h3 class="box-title m-b-0">Johnathan Doe</h3> Primary Care Doctor
+                                                    <h3 class="box-title m-b-0">Education</h3>Ph.D Cebu Doctor University
+                                                    <h3 class="box-title m-b-0">Language</h3> Cebuano, English, 中文
+                                                    <h3 class="box-title m-b-0">Overall Rating</h3> <i class="mdi mdi-star text-danger"></i> <i class="mdi mdi-star text-danger"></i> <i class="mdi mdi-star text-danger"></i> <i class="mdi mdi-star-half text-danger"></i> <i class="mdi mdi-star-outline"></i>
+
+                                                    <p class="m-t-10"><btn class="btn btn-outline btn-default"><i class="icon-envelope"></i> Inqurey</btn> </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Full Name</strong>
+                                                <br>
+                                                <p class="text-muted">Johnathan Deo</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Mobile</strong>
+                                                <br>
+                                                <p class="text-muted">(123) 456 7890</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 b-r"> <strong>Email</strong>
+                                                <br>
+                                                <p class="text-muted">johnathan</p>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6"> <strong>Location</strong>
+                                                <br>
+                                                <p class="text-muted">London</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <strong>Experience</strong>
+                                        <p class="m-t-30">Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
+                                        <hr>
+                                        <strong>Specialities</strong>
+                                        <p>Primary Care, </p>
+                                    </div>
+                                </div>
+                                <!--schedule tab-->
+                                <div role="tabpanel" class="tab-pane fade" id="schedule-tab">
+                                    <div class="row text-center">
+                                        <div class="col-sm-1 col-xs-2 p-t-10 p-b-10">
+                                            <span><i class="icon-arrow-left"></i> </span>
+                                        </div>
+                                        <div class="col-sm-2 col-xs-8 text-center">
+                                            <p>TUE</p>
+                                            <p> DEC 12 </p>
+                                            <button class="btn btn-block btn-outline btn-default time-block">09:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">09:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">10:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">10:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">11:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">11:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">13:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">13:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">14:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">14:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">15:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">15:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">16:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">16:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">17:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">17:30 </button>
+                                        </div>
+                                        <div class="col-sm-2 text-center hidden-xs">
+                                            <p>WED</p>
+                                            <p> DEC 13 </p>
+                                            <button class="btn btn-block btn-outline btn-default time-block">09:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">09:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">10:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">10:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">11:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">11:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">13:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">13:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">14:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">14:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">15:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">15:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">16:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">16:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">17:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">17:30 </button>
+                                        </div>
+                                        <div class="col-sm-2 text-center hidden-xs">
+                                            <p>THU</p>
+                                            <p> DEC 14 </p>
+                                            <button class="btn btn-block btn-outline btn-default time-block">09:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">09:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">10:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">10:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">11:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">11:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">13:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">13:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">14:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">14:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">15:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">15:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">16:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">16:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">17:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">17:30 </button>
+                                        </div>
+                                        <div class="col-sm-2 text-center hidden-xs">
+                                            <p>FRI</p>
+                                            <p> DEC 15 </p>
+                                            <button class="btn btn-block btn-outline btn-default time-block">09:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">09:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">10:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">10:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">11:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">11:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">13:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">13:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">14:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">14:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">15:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">15:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">16:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">16:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">17:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">17:30 </button>
+                                        </div>
+                                        <div class="col-sm-2 text-center hidden-xs">
+                                            <p>SAT</p>
+                                            <p> DEC 16 </p>
+                                            <button class="btn btn-block btn-outline btn-default time-block">09:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">09:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">10:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">10:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">11:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">11:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">13:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">13:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">14:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">14:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">15:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">15:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">16:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">16:30 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">17:00 </button>
+                                            <button class="btn btn-block btn-outline btn-default time-block">17:30 </button>
+                                        </div>
+                                        <div class="col-sm-1 col-xs-2 p-t-10 p-b-10">
+                                            <span><i class="icon-arrow-right"></i> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <!-- /.container-fluid -->
+            <footer class="footer text-center"> 2017 &copy; DoctorPlus.ph All Right Reserved </footer>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page Content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="plugins/bower_components/jquery/dist/jquery-3.2.1.min.js"></script>
+    <script src="plugins/bower_components/jquery-migrate/jquery-migrate-3.0.1.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <script src="js/mask.js"></script>
+    <!-- Sweet-Alert  -->
+    <script src="plugins/bower_components/sweetalert/sweetalert.min.js"></script>
+    <!-- jQuery for carousel -->
+    <script src="plugins/bower_components/owl.carousel/owl.carousel.min.js"></script>
+    <script src="plugins/bower_components/owl.carousel/owl.custom.js"></script>
+    <!--<script src="plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js"></script>-->
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="plugins/bower_components/moment/moment.js"></script>
+    <script src="plugins/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/home.js"></script>
+    <!--Google Maps-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIrSYzF9kxQv7YJlpw7Mjc9JUeHeNUc4A"></script>
+    <!--Style Switcher -->
+    <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+
+    <!--Angular JS-->
+    <script src="angular/angular.min.js"></script>
+    <script src="angular/angular-cookies.min.js"></script>
+    <!--Custom Controller JS-->
+    <script src="angular/index.ds.js"></script>
+</body>
+
+</html>
